@@ -1073,8 +1073,7 @@ class Grid {
         contentNav: document.querySelector(".content__nav"),
         // For demo purposes only (proof of concept).
         // .content__nav-item
-        contentNavItems: document.querySelectorAll(".content__nav-item"),
-        columnItem: document.querySelectorAll(".column__item-img")
+        contentNavItems: document.querySelectorAll(".content__nav-item")
     };
     // GridItem instances array.
     gridItemArr = [];
@@ -1151,10 +1150,9 @@ class Grid {
                 const computedStyle = getComputedStyle(event.target);
                 const currentFilter = computedStyle.getPropertyValue("filter");
                 // Toggle the grayscale filter on the clicked image
-                if (currentFilter === "grayscale(1)") event.target.style.filter = "grayscale(0)";
-                 /* else {
-                        event.target.style.filter = 'grayscale(1)';
-                    } */ 
+                event.target.style.filter = "grayscale(0)";
+                //console.log('Image clicked');
+                event.target.style.ratio = "0.95";
             });
             // Hovering on the grid item's image outer.
             gridItem.DOM.img.outer.addEventListener("mouseenter", ()=>{
@@ -1218,18 +1216,7 @@ class Grid {
                     scale: 1
                 }, 0);
             });
-        // Close the current item's content and reveal back the grid.
-        /* this.DOM.backCtrl.addEventListener('click', (event) => {
-            
-            const computedStyle = getComputedStyle(event.target);
-                const currentFilter = computedStyle.getPropertyValue('filter');
-
-                // Toggle the grayscale filter on the clicked image
-                if (currentFilter === 'grayscale(0)') {
-                    event.target.style.filter = 'grayscale(1)';
-                    //console.log('Image clicked');
-                } 
-        }); */ }
+        }
         // Recalculate current image transform
         window.addEventListener("resize", ()=>{
             if (this.isGridView) return false;
@@ -1263,9 +1250,7 @@ class Grid {
             });
             this.closeContent();
         });
-    /* for (const [position, gridItem] of this.gridItemArr.entries()){
-
-        } */ }
+    }
     /**
      * Scale up the image and reveal its content.
      * @param {GridItem} gridItem - the gridItem element.
@@ -1306,7 +1291,7 @@ class Grid {
             gridItem.DOM.img.inner,
             this.viewportGridItemsImgOuter
         ], {
-            willChange: "transform, opacity, filter"
+            willChange: "transform, opacity"
         }, "start").to(this.DOM.heading.top, {
             y: "-200%",
             scaleY: 4
@@ -1322,7 +1307,6 @@ class Grid {
                 })
         }, "start").to(gridItem.DOM.img.inner, {
             scale: 1,
-            //
             onComplete: ()=>(0, _gsap.gsap).set(gridItem.DOM.img.inner, {
                     willChange: ""
                 })
@@ -1356,7 +1340,6 @@ class Grid {
         ].slice(this.viewportGridItems.length + 1), {
             y: "0%",
             opacity: 1,
-            //filter:grayscale(1),
             delay: (pos)=>0.03 * pos
         }, "showContent").add(()=>{
             gridItem.contentItem.DOM.el.classList.add("content__item--current");
@@ -1376,9 +1359,7 @@ class Grid {
             y: "0%",
             scaleY: 1
         }, "showContent");
-    /* .to([this.DOM.columnItem],{
-            filter: grayscale(0)
-        }, 'showContent') */ }
+    }
     /**
      * Scale down the image and reveal the grid again.
      */ closeContent() {
@@ -1395,7 +1376,6 @@ class Grid {
                 (0, _gsap.gsap).set(this.remainingGridItems, {
                     opacity: 1
                 });
-                //gsap.set(this.remainingGridItems,{filter:grayscale(1)})
                 bodyEl.classList.remove("oh");
             },
             onComplete: ()=>{

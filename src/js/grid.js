@@ -38,8 +38,6 @@ export class Grid {
         // .content__nav-item
         contentNavItems: document.querySelectorAll('.content__nav-item'),
 
-        columnItem: document.querySelectorAll('.column__item-img')
-
     };
     // GridItem instances array.
     gridItemArr = [];
@@ -132,17 +130,12 @@ export class Grid {
                 const currentFilter = computedStyle.getPropertyValue('filter');
 
                 // Toggle the grayscale filter on the clicked image
-                if (currentFilter === 'grayscale(1)') {
+                
+                
                     event.target.style.filter = 'grayscale(0)';
                     //console.log('Image clicked');
-                } /* else {
-                        event.target.style.filter = 'grayscale(1)';
-                    } */
-    
-
+                    event.target.style.ratio='0.95';
             });
-
-
             
             // Hovering on the grid item's image outer.
             gridItem.DOM.img.outer.addEventListener('mouseenter', () => {
@@ -174,19 +167,6 @@ export class Grid {
                 .set([gridItem.DOM.img.outer, gridItem.DOM.img.inner], { willChange: 'transform' }, 'start')
                 .to([gridItem.DOM.img.outer, gridItem.DOM.img.inner], {scale: 1}, 0);
             });
-
-            // Close the current item's content and reveal back the grid.
-        /* this.DOM.backCtrl.addEventListener('click', (event) => {
-            
-            const computedStyle = getComputedStyle(event.target);
-                const currentFilter = computedStyle.getPropertyValue('filter');
-
-                // Toggle the grayscale filter on the clicked image
-                if (currentFilter === 'grayscale(0)') {
-                    event.target.style.filter = 'grayscale(1)';
-                    //console.log('Image clicked');
-                } 
-        }); */
         }
 
         // Recalculate current image transform
@@ -227,19 +207,9 @@ export class Grid {
             this.lscroll.scrollTo(this.lastscroll, {duration: 0, disableLerp: true});
 
             this.closeContent();
-
-            
-
         });
 
-        /* for (const [position, gridItem] of this.gridItemArr.entries()){
-
-        } */
-
     }
-
-    
-    
 
     /**
      * Scale up the image and reveal its content.
@@ -276,7 +246,7 @@ export class Grid {
             zIndex: 100
         }, 'start')
         .set([gridItem.DOM.img.outer, gridItem.DOM.img.inner, this.viewportGridItemsImgOuter], {
-            willChange: 'transform, opacity, filter'
+            willChange: 'transform, opacity'
         }, 'start')
         .to(this.DOM.heading.top, {
             y: '-200%',
@@ -294,9 +264,7 @@ export class Grid {
         }, 'start')
         .to(gridItem.DOM.img.inner, {
             scale: 1,
-            //
-            onComplete: () => gsap.set(gridItem.DOM.img.inner, {willChange: ''}),
-            //filter: grayscale(0)
+            onComplete: () => gsap.set(gridItem.DOM.img.inner, {willChange: ''})
         }, 'start')
         
 
@@ -330,7 +298,6 @@ export class Grid {
         .to([...this.DOM.contentNavItems].slice(this.viewportGridItems.length+1), {
             y: '0%', 
             opacity: 1,
-            //filter:grayscale(1),
             delay: pos => 0.03*pos
         }, 'showContent')
         .add(() => {
@@ -339,7 +306,6 @@ export class Grid {
         }, 'showContent')
         .to([this.DOM.backCtrl, this.DOM.contentNav, gridItem.contentItem.DOM.text], {
             opacity: 1
-            //filter: grayscale(0)
         }, 'showContent')
         .to(gridItem.contentItem.DOM.title, {
             opacity: 1,
@@ -350,10 +316,6 @@ export class Grid {
             y: '0%',
             scaleY: 1
         }, 'showContent')
-        /* .to([this.DOM.columnItem],{
-            filter: grayscale(0)
-        }, 'showContent') */
-        
     }
 
     /**
@@ -372,7 +334,6 @@ export class Grid {
             onStart: () => {
                 // Show all other grid items in the grid.
                 gsap.set(this.remainingGridItems, {opacity: 1});
-                //gsap.set(this.remainingGridItems,{filter:grayscale(1)})
 
                 bodyEl.classList.remove('oh');
             },
