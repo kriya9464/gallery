@@ -1142,6 +1142,10 @@ class Grid {
                 if (!this.isGridView || this.isAnimating || document.documentElement.classList.contains("has-scroll-scrolling")) return false;
                 this.isAnimating = true;
                 this.isGridView = false;
+                const myElements = document.querySelectorAll(".column__item");
+                myElements.forEach((element)=>{
+                    element.style.border = "0px";
+                });
                 // Update currentGridItem
                 this.currentGridItem = position;
                 // Stop/Destroy the Locomotive scroll
@@ -1242,6 +1246,10 @@ class Grid {
             if (this.isGridView || this.isAnimating) return false;
             this.isAnimating = true;
             this.isGridView = true;
+            const myElements = document.querySelectorAll(".column__item");
+            myElements.forEach((element)=>{
+                element.style.border = "20px dashed";
+            });
             // Restart the Locomotive scroll
             this.initSmoothScroll();
             this.lscroll.scrollTo(this.lastscroll, {

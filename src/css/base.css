@@ -258,6 +258,7 @@ main::after {
 	
 }
 
+
 .column__item-imgwrap {
 	width: var(--grid-item-width);
 	height: var(--grid-item-height);
@@ -265,7 +266,8 @@ main::after {
 	overflow: hidden;
 	border-radius: 8px;
 	cursor: pointer;
-	margin: 8vh 1vw 0;
+	margin-bottom: 35px !important;
+	margin-top: 35px !important;
 }
 
 .column__item-img {
@@ -275,12 +277,14 @@ main::after {
 	background-position: 50% 20%;
 	backface-visibility: hidden;
 	filter:grayscale(1);
+	
 }
 
 .column__item-img:hover{
 	filter:grayscale(0);
 	
 }
+
 
 .column__item-caption {
 	text-transform: uppercase;
@@ -519,6 +523,7 @@ main::after {
 	.heading--up {
 		display: block;
 	}
+
 
 	.column__item-imgwrap {
 		margin: 5vw 2.75vw 0;

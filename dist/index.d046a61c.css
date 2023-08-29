@@ -241,9 +241,10 @@ main:after {
   height: var(--grid-item-height);
   cursor: pointer;
   border-radius: 8px;
-  margin: 8vh 1vw 0;
   position: relative;
   overflow: hidden;
+  margin-top: 35px !important;
+  margin-bottom: 35px !important;
 }
 
 .column__item-img {

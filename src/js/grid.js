@@ -117,6 +117,11 @@ export class Grid {
                 }
                 this.isAnimating = true;
                 this.isGridView = false;
+                
+                const myElements = document.querySelectorAll('.column__item');
+                myElements.forEach(element => {
+                element.style.border = '0px';
+                });
 
                 // Update currentGridItem
                 this.currentGridItem = position;
@@ -202,6 +207,10 @@ export class Grid {
             this.isAnimating = true;
             this.isGridView = true;
 
+            const myElements = document.querySelectorAll('.column__item');
+                myElements.forEach(element => {
+                element.style.border = '20px dashed';
+                });
             // Restart the Locomotive scroll
             this.initSmoothScroll();
             this.lscroll.scrollTo(this.lastscroll, {duration: 0, disableLerp: true});
