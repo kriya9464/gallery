@@ -428,8 +428,8 @@ main:after {
   }
 
   body {
-    --ratio: .655;
-    --grid-item-height: 25vw;
+    --ratio: .8;
+    --grid-item-height: 20vw;
     --thumb-height: 7vh;
   }
 
@@ -636,6 +636,51 @@ html.has-scroll-dragging {
 [data-scroll-direction="horizontal"] .c-scrollbar_thumb {
   bottom: 0;
   right: auto;
+}
+
+@media screen and (width <= 849px) {
+  body {
+    --ratio: .7;
+    --grid-item-height: 25vw;
+    --thumb-height: 7vh;
+  }
+
+  .column__item {
+    border: 17px dashed;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (width <= 750px) {
+  body {
+    --ratio: .8;
+    --grid-item-height: 20vw;
+    --thumb-height: 7vh;
+  }
+
+  .column__item {
+    border: 12px dashed;
+  }
+}
+
+@media screen and (width <= 550px) {
+  .column__item {
+    border: 8px dashed;
+    padding: 0 5px;
+  }
+}
+
+@media screen and (width <= 450px) {
+  body {
+    --ratio: .8;
+    --grid-item-height: 30vw;
+    --thumb-height: 7vh;
+  }
+
+  .column__item {
+    border: 0;
+  }
 }
 
 /*# sourceMappingURL=index.d046a61c.css.map */

@@ -458,8 +458,8 @@ main::after {
 	}
 
 	body {
-		--ratio: 0.655;
-		--grid-item-height: 25vw;
+		--ratio: 0.8;
+		--grid-item-height: 20vw;
 		--thumb-height: 7vh;
 	}
 
@@ -677,4 +677,58 @@ html.has-scroll-dragging {
 [data-scroll-direction="horizontal"] .c-scrollbar_thumb {
 	right: auto;
 	bottom: 0;
+}
+
+@media screen and (max-width:849px) {
+	body {
+		--ratio: 0.7;
+		--grid-item-height: 25vw;
+		--thumb-height: 7vh;
+	}
+
+	.column__item{
+		padding-left: 20px;
+		padding-right: 20px;
+		border: 17px dashed;
+	}
+}
+
+@media screen and (max-width:750px) {
+	body {
+		--ratio: 0.8;
+		--grid-item-height: 20vw;
+		--thumb-height: 7vh;
+	}
+
+	.column__item{
+		/* padding-left: 20px;
+		padding-right: 20px; */
+		border: 12px dashed;
+	}
+}
+@media screen and (max-width:550px) {
+	/* body {
+		--ratio: 0.75;
+		--grid-item-height: 25vw;
+		--thumb-height: 7vh;
+	} */
+
+	.column__item{
+		padding: 5px;
+		border: 8px dashed;
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+}
+
+@media screen and (max-width:450px) {
+
+	body {
+		--ratio: 0.8;
+		--grid-item-height: 30vw;
+		--thumb-height: 7vh;
+	}
+	.column__item{
+		border:0px;
+	}
 }

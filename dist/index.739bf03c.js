@@ -1048,6 +1048,7 @@ var _gsap = require("gsap");
 const bodyEl = document.body;
 // Calculate the viewport size
 let winsize = (0, _utils.calcWinsize)();
+//console.log(winsize.width);
 window.addEventListener("resize", ()=>winsize = (0, _utils.calcWinsize)());
 class Grid {
     // DOM elements
@@ -1085,7 +1086,8 @@ class Grid {
     isAnimating = false;
     // Scroll cached value
     lastscroll = 0;
-    /**
+    /*  var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight; */ /**
      * Constructor.
      * @param {Element} DOM_el - the .columns element
      */ constructor(DOM_el){
@@ -1246,10 +1248,29 @@ class Grid {
             if (this.isGridView || this.isAnimating) return false;
             this.isAnimating = true;
             this.isGridView = true;
-            const myElements = document.querySelectorAll(".column__item");
-            myElements.forEach((element)=>{
-                element.style.border = "20px dashed";
-            });
+            if (winsize.width >= 846) {
+                const myElements = document.querySelectorAll(".column__item");
+                myElements.forEach((element)=>{
+                    element.style.border = "20px dashed";
+                });
+            } else {
+                if (winsize.width >= 750) {
+                    const myElements = document.querySelectorAll(".column__item");
+                    myElements.forEach((element)=>{
+                        element.style.border = "17px dashed";
+                    });
+                } else if (winsize.width >= 450) {
+                    const myElements = document.querySelectorAll(".column__item");
+                    myElements.forEach((element)=>{
+                        element.style.border = "12px dashed";
+                    });
+                } else {
+                    const myElements = document.querySelectorAll(".column__item");
+                    myElements.forEach((element)=>{
+                        element.style.border = "0px";
+                    });
+                }
+            }
             // Restart the Locomotive scroll
             this.initSmoothScroll();
             this.lscroll.scrollTo(this.lastscroll, {

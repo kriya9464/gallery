@@ -9,6 +9,7 @@ const bodyEl = document.body;
 
 // Calculate the viewport size
 let winsize = calcWinsize();
+//console.log(winsize.width);
 window.addEventListener('resize', () => winsize = calcWinsize());
 
 /**
@@ -49,6 +50,9 @@ export class Grid {
     isAnimating = false;
     // Scroll cached value
     lastscroll = 0;
+
+   /*  var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight; */
     
     /**
      * Constructor.
@@ -207,10 +211,39 @@ export class Grid {
             this.isAnimating = true;
             this.isGridView = true;
 
-            const myElements = document.querySelectorAll('.column__item');
+            if(winsize.width>=846){
+                const myElements = document.querySelectorAll('.column__item');
                 myElements.forEach(element => {
                 element.style.border = '20px dashed';
                 });
+            }else{
+                if(winsize.width>=750){
+                    const myElements = document.querySelectorAll('.column__item');
+                    myElements.forEach(element => {
+                    element.style.border = '17px dashed';
+                    });
+                }else{
+                    if(winsize.width>=450){
+                        const myElements = document.querySelectorAll('.column__item');
+                        myElements.forEach(element => {
+                        element.style.border = '12px dashed';
+                        });
+                    }else{
+                        const myElements = document.querySelectorAll('.column__item');
+                        myElements.forEach(element => {
+                        element.style.border = '0px';
+                        });
+                    }
+                }
+            }
+
+            
+
+            
+
+            
+
+            
             // Restart the Locomotive scroll
             this.initSmoothScroll();
             this.lscroll.scrollTo(this.lastscroll, {duration: 0, disableLerp: true});
@@ -455,6 +488,7 @@ export class Grid {
     calcTransformImage() {
         const imgrect = adjustedBoundingRect(this.gridItemArr[this.currentGridItem].DOM.img.outer);
         return {
+            
             scale: winsize.height * 0.7 / imgrect.height,
             x: winsize.width * 0.5 - (imgrect.left + imgrect.width/2),
             y: winsize.height * 0.5 - (imgrect.top + imgrect.height/2)
