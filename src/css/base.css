@@ -458,8 +458,8 @@ main::after {
 	}
 
 	body {
-		--ratio: 0.655;
-		--grid-item-height: 25vw;
+		--ratio: 0.8;
+		--grid-item-height: 20vw;
 		--thumb-height: 7vh;
 	}
 
@@ -552,6 +552,7 @@ main::after {
 		display: grid;
 		grid-template-rows: 15vh 1fr 35%;
 		grid-template-columns: calc(70vh * 0.95) 1fr;
+		border: 10px;
 		grid-template-areas: 'title ...'
 			'image text'
 			'image text';
@@ -678,3 +679,35 @@ html.has-scroll-dragging {
 	right: auto;
 	bottom: 0;
 }
+
+@media screen and (max-width:849px){
+	body{
+		--ratio: 0.7;
+		--grid-item-height: 25vw;
+		--thumb-height: 7vh;
+	}
+
+	.column__item{
+		padding-left: 20px;
+		padding-right: 20px;
+		border: 17px dashed;
+	}
+}
+
+@media screen and (max-width:450px){
+	body{
+		--ratio: 0.55;
+		--grid-item-height: 35.5vw;
+		--thumb-height: 7vh;
+	}
+
+	.column__item{
+		padding-left: 12px;
+		padding-right: 12px;
+		border: 13px dashed;
+	}
+}
+
+
+
+
