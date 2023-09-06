@@ -1,6 +1,6 @@
 { 
   "homepage": "https://kriya9464.github.io/gallery",
-  "name": "columnscroll",
+  "name": "gallery",
   "version": "1.0.0",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "description": "",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/codrops/[NAME].git"
+    "url": "git://github.com/kriya9464/[NAME].git"
   },
   "keywords": [],
   "author": "Codrops",
   "license": "MIT",
   
   "bugs": {
-    "url": "https://github.com/codrops/[NAME]/issues"
+    "url": "https://github.com/kriya9464/[NAME]/issues"
   },
   "dependencies": {
     "gsap": "^3.8.0",
