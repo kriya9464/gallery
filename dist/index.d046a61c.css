@@ -516,6 +516,7 @@ main:after {
 
   .content__item {
     text-align: left;
+    border: 10px;
     grid-template: "title ." 15vh
                    "image text" 1fr
                    "image text" 35%

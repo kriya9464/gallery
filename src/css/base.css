@@ -554,6 +554,7 @@ main::after {
 		display: grid;
 		grid-template-rows: 15vh 1fr 35%;
 		grid-template-columns: calc(70vh * 0.95) 1fr;
+		border: 10px;
 		grid-template-areas: 'title ...'
 			'image text'
 			'image text';
