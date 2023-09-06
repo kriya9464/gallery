@@ -8,7 +8,7 @@
     "start": "parcel home.html --open",
     "predeploy":"npm run build",
     "deploy":"gh-pages -d build",
-    
+    "clean": "rimraf dist/*",
     "build:parcel": "parcel build home.html --no-content-hash --no-source-maps --public-url ./",
     "build": "npm run clean && npm run build:parcel"
   },
