@@ -20,7 +20,7 @@ body {
   --grid-item-width: calc(var(--grid-item-height) * var(--ratio));
   --thumb-height: 5vw;
   --thumb-width: calc(var(--thumb-height) * var(--ratio));
-  background-image: url("gallery_bg.b989b804.jpeg");
+  background-image: url("../gallery_bg.b989b804.jpeg");
   background-size: cover;
   margin: 0;
   font-family: nimbus-sans, sans-serif;
